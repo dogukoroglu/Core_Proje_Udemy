@@ -18,6 +18,16 @@ namespace BusinessLayer.Concrete
 			_portfolioDal = portfolioDal;
 		}
 
+		public void PortfolioStatusChangeFalse(int id)
+		{
+			_portfolioDal.PortfolioStatusChangeFalse(id);
+		}
+
+		public void PortfolioStatusChangeTrue(int id)
+		{
+			_portfolioDal.PortfolioStatusChangeTrue(id);
+		}
+
 		public void TAdd(Portfolio t)
 		{
 			_portfolioDal.Insert(t);

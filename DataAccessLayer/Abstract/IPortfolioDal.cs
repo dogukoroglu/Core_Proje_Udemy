@@ -9,5 +9,7 @@ namespace DataAccessLayer.Abstract
 {
 	public interface IPortfolioDal : IGenericDal<Portfolio>
 	{
+		void PortfolioStatusChangeTrue(int id);
+		void PortfolioStatusChangeFalse(int id);
 	}
 }

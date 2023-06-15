@@ -1,0 +1,83 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="row">
+	<div class="col">
+		<div class="card bg-default shadow">
+			<div class="card-header bg-transparent border-0">
+				<h3 class="text-white mb-0">Projelerim</h3>
+			</div>
+			<div class="table-responsive">
+				<table class="table align-items-center table-dark table-flush">
+					<thead class="thead-dark">
+						<tr>
+							<th scope="col" style="color:white" class="sort" data-sort="name">#</th>
+							<th scope="col" style="color:white" class="sort" data-sort="name">Proje Adı</th>
+							<th scope="col" style="color:white">Kullanılan Teknolojiler</th>
+							<th scope="col" style="color:white">Proje Link</th>
+							<th scope="col" style="color:white" class="sort" data-sort="status">Durum</th>
+							<th scope="col" style="color:white" class="sort" data-sort="status">Aktif</th>
+							<th scope="col" style="color:white" class="sort" data-sort="status">Pasif</th>
+							<th scope="col" style="color:white" class="sort" data-sort="status">Sil</th>
+							<th scope="col" style="color:white" class="sort" data-sort="status">Düzenle</th>
+						</tr>
+					</thead>
+					<tbody class="list">
+						@foreach (var item in Model)
+						{
+							<tr>
+								<th>@item.PortfolioID</th>
+								<td>@item.Name</td>
+								<td>
+									<div class="avatar-group">
+										<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+											<img alt="Image placeholder" src="@item.Image1">
+										</a>
+										<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+											<img alt="Image placeholder" src="@item.Image2">
+										</a>
+										<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+											<img alt="Image placeholder" src="@item.Image3">
+										</a>
+										<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+											<img alt="Image placeholder" src="@item.Image4">
+										</a>
+									</div>
+								</td>
+								<td><a href="#" style="color:white">@item.ProjectUrl</a></td>
+								@if(item.Status == true)
+								{
+									<td>
+										<span class="badge badge-dot mr-4">
+											<i class="bg-success"></i>
+											<span class="status">Tamamlandı</span>
+										</span>
+									</td>
+								}
+								else
+								{
+									<td>
+										<span class="badge badge-dot mr-4">
+											<i class="bg-warning"></i>
+											<span class="status">Devam Ediyor</span>
+										</span>
+									</td>
+								}
+								<td><a href="/Portfolio/ChangeStatusToTrue/@item.PortfolioID" class="btn btn-success">Aktif</a></td>
+								<td><a href="/Portfolio/ChangeStatusToFalse/@item.PortfolioID" class="btn btn-primary">Pasif</a></td>
+								<td><a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Portfolio/UpdatePortfolio/@item.PortfolioID" class="btn btn-warning">Düzenle</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+<a href="/Portfolio/AddPortfolio/" class="btn btn-dark">Yeni Proje Girişi</a>
