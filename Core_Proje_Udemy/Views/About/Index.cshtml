@@ -1,0 +1,37 @@
+﻿@model EntityLayer.Concrete.About
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Hakkımda Alanı Düzenleme Sayfası</h3>
+    <form method="post" class="form-group">
+        <input type="hidden" asp-for="AboutID" />
+        <br />
+        <label>Başlık</label>
+        <input type="text" class="form-control" asp-for="Title" />
+        <br />
+        <label>Yaş</label>
+        <input type="text" class="form-control" asp-for="Age" />
+        <br />
+        <label>Mail</label>
+        <input type="text" class="form-control" asp-for="Mail" />
+        <br />
+        <label>Telefon Numarası</label>
+        <input type="text" class="form-control" asp-for="Phone" />
+        <br />
+        <label>Adres</label>
+        <input type="text" class="form-control" asp-for="Address" />
+        <br />
+        <label>Görsel</label>
+        <input type="text" class="form-control" asp-for="Mail" />
+        <br />
+        <label>Açıklama</label>
+        @Html.TextAreaFor(x=>x.Description, 10,3,new {@class = "form-control"})
+        <br />
+        <button class="btn btn-dark">Güncelle</button>
+    </form>
+</div>
+

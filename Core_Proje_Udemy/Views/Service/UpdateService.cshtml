@@ -1,0 +1,22 @@
+﻿@model EntityLayer.Concrete.Service
+
+@{
+    ViewData["Title"] = "UpdateService";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card-header border-0">
+    <h3 class="mb-0">Hizmet Düzenleme Sayfası</h3>
+    <form method="post" class="form-group">
+        <input type="hidden" asp-for="ServiceID" />
+        <br />
+        <label>Başlık</label>
+        <input type="text" asp-for="Title" class="form-control" />
+        <br />
+        <label>Görsel</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        <button class="btn btn-dark">Güncelle</button>
+    </form>
+</div>
+
