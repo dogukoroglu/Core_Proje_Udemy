@@ -2,10 +2,62 @@
 
 @{
     ViewData["Title"] = "UpdatePortfolio";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Proje Düzenleme Sayfası </p>
+            <form method="post" class="forms-sample">
+                <input type="hidden" asp-for="PortfolioID" />
+                <div class="form-group">
+                    <label>Proje Adı</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                    <span class="text-danger" asp-validation-for="Name"></span>
+                </div>
+                <div class="form-group">
+                    <label>Görsel-1</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl">
+                    <span class="text-danger" asp-validation-for="ImageUrl"></span>
+                </div>
+                <div class="form-group">
+                    <label>Görsel-2</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl2">
+                    <span class="text-danger" asp-validation-for="ImageUrl2"></span>
+                </div>
+                <div class="form-group">
+                    <label>Proje Linki</label>
+                    <input type="text" class="form-control" asp-for="ProjectUrl">
+                    <span class="text-danger" asp-validation-for="ProjectUrl"></span>
+                </div>
+                <div class="form-group">
+                    <label>Küçük Resim-1</label>
+                    <input type="text" class="form-control" asp-for="Image1" />
+                    <span class="text-danger" asp-validation-for="Image1"></span>
+                </div>
+                <div class="form-group">
+                    <label>Küçük Resim-2</label>
+                    <input type="text" class="form-control" asp-for="Image2" />
+                    <span class="text-danger" asp-validation-for="Image2"></span>
+                </div>
+                <div class="form-group">
+                    <label>Küçük Resim-3</label>
+                    <input type="text" class="form-control" asp-for="Image3" />
+                    <span class="text-danger" asp-validation-for="Image3"></span>
+                </div>
+                <div class="form-group">
+                    <label>Küçük Resim-4</label>
+                    <input type="text" class="form-control" asp-for="Image4" />
+                    <span class="text-danger" asp-validation-for="Image4"></span>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+@*<div class="card-header border-0">
     <h3 class="mb-0">Proje Düzenleme Sayfası</h3>
     <form method="post" class="form-group">
         <input type="hidden" asp-for="PortfolioID" />
@@ -44,5 +96,5 @@
         <br />
         <button class="btn btn-dark">Güncelle</button>
     </form>
-</div>
+</div>*@
 

@@ -2,11 +2,34 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
-    <h3 class="mb-0">Öne Çıkan Alanı Düzenleme Sayfası</h3>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <form method="post" class="forms-sample">
+                <input type="hidden" asp-for="FeatureID" />
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" asp-for="Header">
+                </div>
+                <div class="form-group">
+                    <label>İsim Alanı</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                </div>
+                <div class="form-group">
+                    <label>İçerik</label>
+                    <input type="text" class="form-control" asp-for="Title">
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="card-header border-0">
     <form method="post" class="form-group">
         <input type="hidden" asp-for="FeatureID" />
         <br />
@@ -22,4 +45,4 @@
         <button class="btn btn-dark">Güncelle</button>
     </form>
 </div>
-
+*@

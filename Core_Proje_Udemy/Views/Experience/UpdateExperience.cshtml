@@ -2,10 +2,40 @@
 
 @{
     ViewData["Title"] = "UpdateExperience";
-    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Deneyim Ekleme Sayfası </p>
+            <form method="post" class="forms-sample">
+                <input type="hidden" asp-for="ExperienceID" />
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" class="form-control" asp-for="Name">
+                </div>
+                <div class="form-group">
+                    <label>Deneyim İsmi</label>
+                    <input type="text" class="form-control" asp-for="Date">
+                </div>
+                <div class="form-group">
+                    <label>Resim Yolu</label>
+                    <input type="text" class="form-control" asp-for="ImageUrl">
+                </div>
+                <div class="form-group">
+                    <label>Açıklama</label>
+                    <textarea class="form-control" asp-for="Description" rows="6" cols="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-dark">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+@*<div class="card-header border-0">
     <h3 class="mb-0">Deneyim Düzenleme Sayfası</h3>
     <form method="post" class="form-group">
         <input type="hidden" asp-for="ExperienceID" />
@@ -24,5 +54,5 @@
         <br />
         <button class="btn btn-dark">Güncelle</button>
     </form>
-</div>
+</div>*@
 

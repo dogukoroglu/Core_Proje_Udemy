@@ -3,10 +3,48 @@
 
 @{
 	ViewData["Title"] = "Index";
-	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
-<div class="card-header border-0">
+<div class="col-lg-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<div class="table-responsive">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>Başlık</th>
+							<th>Oran</th>
+							<th>Sil</th>
+							<th>Güncelle</th>
+						</tr>
+					</thead>
+					<tbody>
+						@foreach (var item in Model)
+						{
+							<tr style="color:white">
+								<td>@item.SkillID</td>
+								<td>@item.Title</td>
+								<td>
+									<span class="completion mr-2">@item.Value%</span>
+									<div class="progress">
+										<div class="progress-bar bg-success" role="progressbar" style="width: @item.Value%" aria-valuenow="@item.Value" aria-valuemin="0" aria-valuemax="100"></div>
+									</div>
+								</td>
+								<td><a href="/Skill/DeleteSkill/@item.SkillID" class="btn btn-danger">Sil</a></td>
+								<td><a href="/Skill/UpdateSkill/@item.SkillID" class="btn btn-warning">Güncelle</a></td>
+							</tr>
+						}
+					</tbody>
+				</table>
+				<a href="/Skill/AddSkill/" class="btn btn-primary">Yeni Yetenek Ekle</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+@*<div class="card-header border-0">
 	<h3 class="mb-0">Yetenek Listesi Tablosu</h3>
 </div>
 <!-- Light table -->
@@ -46,5 +84,5 @@
 	</table>
 	<br />
 	<a href="/Skill/AddSkill/" class="btn btn-dark">Yeni Yetenek Ekle</a>
-</div>
+</div>*@
 

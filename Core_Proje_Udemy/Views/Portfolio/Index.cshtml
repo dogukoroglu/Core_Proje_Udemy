@@ -3,7 +3,7 @@
 
 @{
 	ViewData["Title"] = "Index";
-	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
 }
 
 <div class="row">
@@ -30,7 +30,7 @@
 					<tbody class="list">
 						@foreach (var item in Model)
 						{
-							<tr>
+							<tr style="color:white">
 								<th>@item.PortfolioID</th>
 								<td>@item.Name</td>
 								<td>
@@ -80,4 +80,5 @@
 		</div>
 	</div>
 </div>
-<a href="/Portfolio/AddPortfolio/" class="btn btn-dark">Yeni Proje Girişi</a>
+<br />
+<a href="/Portfolio/AddPortfolio/" class="btn btn-primary">Yeni Proje Girişi</a>
