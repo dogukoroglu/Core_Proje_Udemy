@@ -8,5 +8,10 @@ namespace Core_Proje_Udemy.Controllers
         {
             return View();
         }
-    }
+
+		public PartialViewResult NewPartialSidebar()
+		{
+			return PartialView();
+		}
+	}
 }
