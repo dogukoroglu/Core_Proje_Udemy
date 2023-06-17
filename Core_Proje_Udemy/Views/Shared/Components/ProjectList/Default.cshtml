@@ -1,0 +1,72 @@
+﻿@using EntityLayer.Concrete
+@model List<Portfolio>
+
+	<div class="row ">
+		<div class="col-12 grid-margin">
+			<div class="card">
+				<div class="card-body">
+					<h4 class="card-title">Proje Listesi</h4>
+					<div class="table-responsive">
+						<table class="table">
+							<thead>
+								<tr>
+									<th>#</th>
+									<th>Proje Adı </th>
+									<th> Kullanılan Teknolojiler </th>
+									<th> Proje Linki </th>
+									<th> Durum </th>
+								</tr>
+							</thead>
+							<tbody>
+							@foreach (var item in Model)
+							{
+								<tr style="color:white">
+									<th>@item.PortfolioID</th>
+									<td>@item.Name</td>
+									<td>
+										<div class="avatar-group">
+											<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+												<img alt="Image placeholder" src="@item.Image1">
+											</a>
+											<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+												<img alt="Image placeholder" src="@item.Image2">
+											</a>
+											<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+												<img alt="Image placeholder" src="@item.Image3">
+											</a>
+											<a href="#" class="avatar avatar-sm rounded-circle" data-toggle="tooltip">
+												<img alt="Image placeholder" src="@item.Image4">
+											</a>
+										</div>
+									</td>
+									<td><a href="#" style="color:white">@item.ProjectUrl</a></td>
+									@if (item.Status == true)
+									{
+										@*<td>
+											<span class="badge badge-dot mr-4">
+												<i class="bg-success"></i>
+												<span class="status">Tamamlandı</span>
+											</span>
+										</td>*@
+										<td><div class="badge badge-outline-success">Tamamlandı</div></td>
+									}
+									else
+									{
+										@*<td>
+											<span class="badge badge-dot mr-4">
+												<i class="bg-warning"></i>
+												<span class="status">Devam Ediyor</span>
+											</span>
+										</td>*@
+										<td><div class="badge badge-outline-warning">Devam Ediyor</div></td>
+									}
+								</tr>
+							}
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+@*<td><div class="badge badge-outline-success">Approved</div></td>*@
