@@ -378,6 +378,33 @@ namespace DataAccessLayer.Migrations
                     b.ToTable("UserMessages");
                 });
 
+            modelBuilder.Entity("EntityLayer.Concrete.WritterMessage", b =>
+                {
+                    b.Property<int>("WritterMessageID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("MessageContent")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Receiver")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Sender")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subject")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("WritterMessageID");
+
+                    b.ToTable("WritterMessages");
+                });
+
             modelBuilder.Entity("EntityLayer.Concrete.WritterRole", b =>
                 {
                     b.Property<int>("Id")

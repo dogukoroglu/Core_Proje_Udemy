@@ -1,0 +1,64 @@
+﻿@using EntityLayer.Concrete
+@model List<Announcement>
+
+@{
+	string color = "";
+}
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
+	<p class="mb-0 font-weight-normal float-left dropdown-header">Bildirimler</p>
+	@foreach (var item in Model)
+	{
+		if (item.Status == "Yazı")
+		{
+			color = "preview-icon bg-success";
+		}
+		if (item.Status == "Proje")
+		{
+			color = "preview-icon bg-warning";
+		}
+		if (item.Status == "Eğitim")
+		{
+			color = "preview-icon bg-info";
+		}
+		<a class="dropdown-item preview-item" href="/Writter/Default/AnnouncementDetails/@item.AnnouncementID">
+		<div class="preview-thumbnail">
+			<div class="@color">
+				<i class="ti-info-alt mx-0"></i>
+			</div>
+		</div>
+		<div class="preview-item-content">
+			<h6 class="preview-subject font-weight-normal">@item.Title</h6>
+			<p class="font-weight-light small-text mb-0 text-muted">
+				@item.Status
+			</p>
+		</div>
+	</a>
+	}
+</div>
+
+@*<a class="dropdown-item preview-item">
+	<div class="preview-thumbnail">
+		<div class="preview-icon bg-warning">
+			<i class="ti-settings mx-0"></i>
+		</div>
+	</div>
+	<div class="preview-item-content">
+		<h6 class="preview-subject font-weight-normal">Ayarlar</h6>
+		<p class="font-weight-light small-text mb-0 text-muted">
+			2 Dakika Önce
+		</p>
+	</div>
+</a>
+<a class="dropdown-item preview-item">
+	<div class="preview-thumbnail">
+		<div class="preview-icon bg-info">
+			<i class="ti-user mx-0"></i>
+		</div>
+	</div>
+	<div class="preview-item-content">
+		<h6 class="preview-subject font-weight-normal">New user registration</h6>
+		<p class="font-weight-light small-text mb-0 text-muted">
+			2 Gün Önce
+		</p>
+	</div>
+</a>*@
