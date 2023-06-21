@@ -31,9 +31,9 @@ namespace Core_Proje_Udemy.Areas.Writter.Controllers
 
             // Statisctics
             Context c = new Context();
-            ViewBag.incomingMessage = 0;
+            ViewBag.incomingMessage = c.WritterMessages.Where(x=>x.Receiver == values.Email).Count();
             ViewBag.announcementCount = c.Announcements.Count();
-            ViewBag.totalUserCount = 0;
+            ViewBag.totalUserCount = c.Users.Count();
             ViewBag.totalSkillCount = c.Skills.Count();
 
             return View();

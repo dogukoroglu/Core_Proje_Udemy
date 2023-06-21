@@ -38,6 +38,16 @@ namespace BusinessLayer.Concrete
 			return _writterMessageDal.GetList();
 		}
 
+		public List<WritterMessage> TGetListReceiverMessage(string p)
+		{
+			return _writterMessageDal.GetByFilter(x => x.Receiver == p);
+		}
+
+		public List<WritterMessage> TGetListSenderMessage(string p)
+		{
+			return _writterMessageDal.GetByFilter(x => x.Sender == p);
+		}
+
 		public void TUpdate(WritterMessage t)
 		{
 			_writterMessageDal.Update(t);

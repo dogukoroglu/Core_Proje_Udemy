@@ -10,9 +10,6 @@ namespace Core_Proje_Udemy.Controllers
 		ExperienceManager experienceManager = new ExperienceManager(new EfExperienceDal());
 		public IActionResult Index()
 		{
-			ViewBag.v1 = "Deneyim Listesi";
-			ViewBag.v2 = "Deneyimler";
-			ViewBag.v3 = "Deneyim Listesi";
 			var values = experienceManager.TGetList();
 			return View(values);
 		}
@@ -40,9 +37,6 @@ namespace Core_Proje_Udemy.Controllers
 		[HttpGet]
 		public IActionResult UpdateExperience(int id)
 		{
-			ViewBag.v1 = "Deneyim Düzenleme";
-			ViewBag.v2 = "Deneyimler";
-			ViewBag.v3 = "Deneyim Düzenleme";
 			var values = experienceManager.TGetByID(id);
 			return View(values);
 		}

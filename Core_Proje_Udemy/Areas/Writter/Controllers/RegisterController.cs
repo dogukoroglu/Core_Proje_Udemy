@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 namespace Core_Proje_Udemy.Areas.Writter.Controllers
 {
     [Area("Writter")]
+    [Route("Writter/[controller]/[action]")]
+
     public class RegisterController : Controller
     {
         private readonly UserManager<WritterUser> _userManager;

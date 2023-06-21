@@ -18,6 +18,7 @@ namespace Core_Proje_Udemy.Areas.Writter.ViewComponents
 		{
 			var user = await _userManager.FindByNameAsync(User.Identity.Name);
 			ViewBag.userImage = user.ImageUrl;
+			ViewBag.userName = user.Name + " " + user.Surname;
 			return View();
 		}
 	}

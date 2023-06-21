@@ -50,7 +50,7 @@ namespace Core_Proje_Udemy.Areas.Writter.Controllers
             var result = await _userManager.UpdateAsync(user);
             if (result.Succeeded)
             {
-                return RedirectToAction("Index", "Login");
+                return RedirectToAction("Index","Login");
             }
             return View();
         }
