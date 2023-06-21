@@ -11,9 +11,6 @@ namespace Core_Proje_Udemy.Controllers
         SkillManager skillManager = new SkillManager(new EfSkillDal());
         public IActionResult Index()
         {
-			ViewBag.v1 = "Yetenek Listesi";
-			ViewBag.v2 = "Yetenekler";
-			ViewBag.v3 = "Yetenek Listesi";
 			var values = skillManager.TGetList();
             return View(values);
         }
@@ -21,9 +18,6 @@ namespace Core_Proje_Udemy.Controllers
         [HttpGet]
         public IActionResult AddSkill()
         {
-            ViewBag.v1 = "Yetenek Ekleme";
-            ViewBag.v2 = "Yetenekler";
-            ViewBag.v3 = "Yetenek Ekleme";
             return View();
         }
 
@@ -44,9 +38,6 @@ namespace Core_Proje_Udemy.Controllers
         [HttpGet]
         public IActionResult UpdateSkill(int id)
         {
-			ViewBag.v1 = "Yetenek Düzenleme";
-			ViewBag.v2 = "Yetenekler";
-			ViewBag.v3 = "Yetenek Düzenleme";
 			var values = skillManager.TGetByID(id);
 			return View(values);
         }

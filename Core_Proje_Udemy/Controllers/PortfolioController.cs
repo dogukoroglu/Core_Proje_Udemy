@@ -13,9 +13,6 @@ namespace Core_Proje_Udemy.Controllers
 		PortfolioManager portfolioManager = new PortfolioManager(new EfPortfoiloDal());
 		public IActionResult Index()
 		{
-			ViewBag.v1 = "Proje Listesi";
-			ViewBag.v2 = "Projelerim";
-			ViewBag.v3 = "Proje Listesi";
 			var values = portfolioManager.TGetList();
 			return View(values);
 		}
@@ -23,9 +20,6 @@ namespace Core_Proje_Udemy.Controllers
 		[HttpGet]
 		public IActionResult AddPortfolio()
 		{
-			ViewBag.v1 = "Proje Listesi";
-			ViewBag.v2 = "Projelerim";
-			ViewBag.v3 = "Proje Listesi";
 			return View();
 		}
 
@@ -64,9 +58,6 @@ namespace Core_Proje_Udemy.Controllers
 		[HttpGet]
 		public IActionResult UpdatePortfolio(int id)
 		{
-			ViewBag.v1 = "Proje Listesi";
-			ViewBag.v2 = "Projelerim";
-			ViewBag.v3 = "Proje Listesi";
 			var value = portfolioManager.TGetByID(id);
 			return View(value);
 		}

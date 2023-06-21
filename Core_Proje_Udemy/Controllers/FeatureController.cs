@@ -11,9 +11,6 @@ namespace Core_Proje_Udemy.Controllers
 		[HttpGet]
 		public IActionResult Index()
 		{
-			ViewBag.v1 = "Düzenleme";
-			ViewBag.v2 = "Öne Çıkanar";
-			ViewBag.v3 = "Öne Çıkanlar Düzenleme";
 			var values = featureManager.TGetByID(1);
 			return View(values);
 		}
