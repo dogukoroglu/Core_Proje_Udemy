@@ -1,0 +1,27 @@
+﻿@model EntityLayer.Concrete.WritterMessage
+@{
+	ViewData["Title"] = "AdminSendMessage";
+	Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<p class="card-description"> Admin-Yazar | Mesaj Gönderme Sayfası </p>
+			<form method="post" class="forms-sample">
+				@Html.Label("Alıcı")
+				@Html.DropDownListFor(x=>x.Receiver,(List<SelectListItem>)ViewBag.userList,new{@class="form-control",@style ="color:white"})
+				<br />
+				@Html.Label("Konu")
+				@Html.TextBoxFor(x=>x.Subject,new{@class = "form-control",@style ="color:white"})
+				<br />
+				@Html.Label("Mesaj")
+				@Html.TextAreaFor(x=>x.MessageContent,10,3,new{@class = "form-control",@style ="color:white"})
+				<br />
+				<button class="btn btn-dark">Gönder</button>
+				
+			</form>
+		</div>
+	</div>
+</div>
+

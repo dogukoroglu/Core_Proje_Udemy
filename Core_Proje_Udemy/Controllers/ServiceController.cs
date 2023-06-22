@@ -21,7 +21,7 @@ namespace Core_Proje_Udemy.Controllers
         }
 
 		[HttpPost]
-		public IActionResult AddService(Service service)
+		public IActionResult AddSeudrvice(Service service)
 		{
             serviceManager.TAdd(service);
             return RedirectToAction("Index");

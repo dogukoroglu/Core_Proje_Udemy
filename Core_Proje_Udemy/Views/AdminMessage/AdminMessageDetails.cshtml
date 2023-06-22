@@ -1,0 +1,42 @@
+﻿@model EntityLayer.Concrete.WritterMessage
+
+@{
+    ViewData["Title"] = "AdminMessageDetails";
+    Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<h1>AdminMessageDetails</h1>
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <p class="card-description"> Mesaj Detayları  </p>
+            <form method="post" class="forms-sample">
+                <input type="hidden" asp-for="WritterMessageID" />
+                <div class="form-group">
+                    <label>Başlık</label>
+                    <input type="text" style="color:black" class="form-control" asp-for="Subject" disabled="disabled">
+                </div>
+                <div class="form-group">
+                    <label>Gönderen</label>
+                    <input type="text" style="color:black" class="form-control" asp-for="SenderName" disabled="disabled">
+                </div>
+                <div class="form-group">
+                    <label>Alıcı</label>
+                    <input type="text" style="color:black" class="form-control" asp-for="ReceiverName" disabled="disabled">
+                </div>
+                <div class="form-group">
+                    <label>Tarih</label>
+                    <input type="text" style="color:black" class="form-control" asp-for="Date" disabled="disabled">
+                </div>
+                <div class="form-group">
+                    <label>Mesaj İçeriği</label>
+                    <textarea class="form-control" style="color:black" asp-for="MessageContent" rows="6" cols="3" disabled="disabled"></textarea>
+                </div>
+                @*<button type="submit" class="btn btn-primary mr-2">Kaydet</button>
+                <button class="btn btn-dark">İptal</button>*@
+            </form>
+        </div>
+    </div>
+</div>
+
+
