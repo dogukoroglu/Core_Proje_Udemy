@@ -1,0 +1,69 @@
+﻿@using EntityLayer.Concrete
+@model List<Testimonial>
+
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_NewAdminLayout.cshtml";
+}
+
+<div class="row ">
+	<div class="col-12 grid-margin">
+		<div class="card">
+			<div class="card-body">
+				<h4 class="card-title">Referanslar Listesi</h4>
+				<div class="table-responsive">
+					<table class="table">
+						<thead>
+							<tr>
+								<th>
+									<div class="form-check form-check-muted m-0">
+										<label class="form-check-label">
+											<input type="checkbox" class="form-check-input">
+										</label>
+									</div>
+								</th>
+								<th>#</th>
+								<th> Müşteri Adı </th>
+								<th> Şirket </th>
+								<th> Yorum </th>
+								<th> Başlık </th>
+								<th> Sil </th>
+								<th> Düzenle </th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var item in Model)
+							{
+								<tr>
+									<td>
+										<div class="form-check form-check-muted m-0">
+											<label class="form-check-label">
+												<input type="checkbox" class="form-check-input">
+											</label>
+										</div>
+									</td>
+									<td>@item.TestimonialID</td>
+									<td>
+										<img src="@item.ImageUrl" alt="image" />
+										<span class="pl-2">@item.ClientName</span>
+									</td>
+									<td> @item.Company </td>
+									<td> @item.Comment.Substring(0,40)... </td>
+									<td> @item.Title </td>
+									@*<td>
+										<div class="badge badge-outline-success">Approved</div>
+									</td>*@
+									<td><a class="btn btn-danger" href="/Testimonial/DeleteTestimonial/@item.TestimonialID">Sil</a></td>
+									<td><a class="btn btn-warning" href="/Testimonial/UpdateTestimonial/@item.TestimonialID">Düzenle</a></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+					<br />
+					<a href="/Testimonial/AddTestimonial/" class="btn btn-primary">Yeni Referans Ekle</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
