@@ -82,17 +82,22 @@ namespace Core_Proje_Udemy.Controllers
 			return View();
 		}
 
-		public IActionResult ChangeStatusToTrue(int id)
+		//public IActionResult ChangeStatusToTrue(int id)
+		//{
+		//	portfolioManager.PortfolioStatusChangeTrue(id);
+		//	return RedirectToAction("Index");
+		//}
+
+		//public IActionResult ChangeStatusToFalse(int id)
+		//{
+		//	portfolioManager.PortfolioStatusChangeFalse(id);
+		//	return RedirectToAction("Index");
+		//}
+
+		public IActionResult ChangeAllPortfolioStatus(int id)
 		{
-			portfolioManager.PortfolioStatusChangeTrue(id);
+			portfolioManager.PortfolioAllStatusChange(id);
 			return RedirectToAction("Index");
 		}
-
-		public IActionResult ChangeStatusToFalse(int id)
-		{
-			portfolioManager.PortfolioStatusChangeFalse(id);
-			return RedirectToAction("Index");
-		}
-
 	}
 }

@@ -68,10 +68,18 @@
 										</span>
 									</td>
 								}
-								<td><a href="/Portfolio/ChangeStatusToTrue/@item.PortfolioID" class="btn btn-success">Aktif</a></td>
-								<td><a href="/Portfolio/ChangeStatusToFalse/@item.PortfolioID" class="btn btn-primary">Pasif</a></td>
+								@if(item.Status == true)
+								{
+									<td><a href="/Portfolio/ChangeAllPortfolioStatus/@item.PortfolioID" class="btn btn-warning">Pasif</a></td>
+								}
+								else
+								{
+									<td><a href="/Portfolio/ChangeAllPortfolioStatus/@item.PortfolioID" class="btn btn-success">Aktif</a></td>
+								}
+								@*<td><a href="/Portfolio/ChangeStatusToTrue/@item.PortfolioID" class="btn btn-success">Aktif</a></td>*@
+								@*<td><a href="/Portfolio/ChangeStatusToFalse/@item.PortfolioID" class="btn btn-primary">Pasif</a></td>*@
 								<td><a href="/Portfolio/DeletePortfolio/@item.PortfolioID" class="btn btn-danger">Sil</a></td>
-								<td><a href="/Portfolio/UpdatePortfolio/@item.PortfolioID" class="btn btn-warning">Düzenle</a></td>
+								<td><a href="/Portfolio/UpdatePortfolio/@item.PortfolioID" class="btn btn-info">Düzenle</a></td>
 							</tr>
 						}
 					</tbody>

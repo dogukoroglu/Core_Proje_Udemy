@@ -11,20 +11,35 @@ namespace DataAccessLayer.EntityFramework
 {
 	public class EfPortfoiloDal : GenericRepository<Portfolio>, IPortfolioDal
 	{
-		public void PortfolioStatusChangeFalse(int id)
+		public void PortfolioAllStatusChange(int id)
 		{
 			using var c = new Context();
 			Portfolio portfolio = c.Portfolios.Find(id);
-			portfolio.Status = false;
+			if(portfolio.Status == true)
+			{
+				portfolio.Status = false;
+			}
+			else
+			{
+				portfolio.Status = true;
+			}
 			c.SaveChanges();
 		}
 
-		public void PortfolioStatusChangeTrue(int id)
-		{
-			using var c = new Context();
-			Portfolio portfolio = c.Portfolios.Find(id);
-			portfolio.Status = true;
-			c.SaveChanges();
-		}
+		//public void PortfolioStatusChangeFalse(int id)
+		//{
+		//	using var c = new Context();
+		//	Portfolio portfolio = c.Portfolios.Find(id);
+		//	portfolio.Status = false;
+		//	c.SaveChanges();
+		//}
+
+		//public void PortfolioStatusChangeTrue(int id)
+		//{
+		//	using var c = new Context();
+		//	Portfolio portfolio = c.Portfolios.Find(id);
+		//	portfolio.Status = true;
+		//	c.SaveChanges();
+		//}
 	}
 }

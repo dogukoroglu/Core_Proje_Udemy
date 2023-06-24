@@ -8,7 +8,8 @@ namespace BusinessLayer.Abstract
 {
 	public interface IPortfolioService : IGenericService<Portfolio>
 	{
-		void PortfolioStatusChangeTrue(int id);
-		void PortfolioStatusChangeFalse(int id);
+		//void PortfolioStatusChangeTrue(int id);
+		//void PortfolioStatusChangeFalse(int id);
+		void PortfolioAllStatusChange(int id);
 	}
 }
