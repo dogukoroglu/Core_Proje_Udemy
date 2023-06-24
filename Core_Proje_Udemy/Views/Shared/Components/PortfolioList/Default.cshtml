@@ -16,7 +16,14 @@
 							<img src="@item.ImageUrl" data-bp="@item.ImageUrl2" />
 							<figcaption>
 								<h4 class="h5 mb-0">@item.Name</h4>
-								<div>@item.ProjectUrl</div>
+								@if(item.Status == true)
+								{
+									<div><li>@item.ProjectUrl</li></div>
+								}
+								else
+								{
+									<div>Proje Yapım Aşamasında</div>
+								}
 							</figcaption>
 						</figure>
 					</a>
