@@ -1,0 +1,70 @@
+﻿@using Core_Proje_Udemy.Areas.Writter.Models
+@model IEnumerable<WritterMessageImageUrl>
+
+
+
+
+<div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
+	<h6 class="p-3 mb-0">Son Mesajlar</h6>
+	@foreach (var item in Model)
+	{
+		<div class="dropdown-divider"></div>
+		<a class="dropdown-item preview-item" href="/AdminMessage/AdminMessageDetails/@item.Id">
+			<div class="preview-thumbnail">
+				<img src="@item.ImageUrl" alt="image" class="rounded-circle profile-pic">
+			</div>
+			<div class="preview-item-content">
+				<p class="preview-subject ellipsis mb-1">@item.SenderName Bir Mesaj Gönderdi</p>
+				<p class="text-muted mb-0">@item.Date</p>
+			</div>
+		</a>
+	}
+
+	<div class="dropdown-divider"></div>
+	<p class="p-3 mb-0 text-center">3 Yeni Mesaj</p>
+</div>
+
+
+
+@*<div class="dropdown-divider"></div>
+<a class="dropdown-item preview-item">
+	<div class="preview-thumbnail">
+		<img src="~/admintemplate/template/assets/images/faces/face2.jpg" alt="image" class="rounded-circle profile-pic">
+	</div>
+	<div class="preview-item-content">
+		<p class="preview-subject ellipsis mb-1">Cregh send you a message</p>
+		<p class="text-muted mb-0"> 15 Dakika önce </p>
+	</div>
+</a>
+<div class="dropdown-divider"></div>
+<a class="dropdown-item preview-item">
+	<div class="preview-thumbnail">
+		<img src="~/admintemplate/template/assets/images/faces/face3.jpg" alt="image" class="rounded-circle profile-pic">
+	</div>
+	<div class="preview-item-content">
+		<p class="preview-subject ellipsis mb-1">Profile picture updated</p>
+		<p class="text-muted mb-0"> 18 Minutes ago </p>
+	</div>
+</a>*@
+
+
+@*@{
+	WritterMessage writterMessage = new WritterMessage();
+	DateTime simdi = DateTime.Parse(DateTime.Now.ToString());
+	DateTime gonderilmeZamani = writterMessage.Date;
+	TimeSpan gecenSure = simdi - gonderilmeZamani;
+}*@
+@*@if (gecenSure.TotalMinutes < 60)
+{
+	int dakika = (int)gecenSure.TotalMinutes;
+	<p class="text-muted mb-0"> @dakika önce gönderildi.</p>
+}
+else
+{
+	int saat = (int)gecenSure.TotalHours;
+	<p class="text-muted mb-0"> @saat önce gönderildi. </p>
+}*@
+@*<p class="text-muted mb-0"> @saat önce gönderildi. </p>*@
+@*DateTime simdi = DateTime.Parse(DateTime.Now.ToString("dd-MMM-yyyy-HH-mm"));*@
+
+@*~/admintemplate/template/assets/images/faces/face4.jpg*@
