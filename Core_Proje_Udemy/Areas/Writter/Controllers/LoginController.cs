@@ -1,11 +1,13 @@
 ﻿using Core_Proje_Udemy.Areas.Writter.Models;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
 namespace Core_Proje_Udemy.Areas.Writter.Controllers
 {
+    [AllowAnonymous]
     [Area("Writter")]
     [Route("Writter/[controller]/[action]")]
 

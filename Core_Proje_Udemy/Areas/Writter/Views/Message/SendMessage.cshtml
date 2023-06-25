@@ -9,7 +9,8 @@
 <br />
 <form class="form-group" method="post">
     @Html.Label("Alıcı Mail")
-    @Html.TextBoxFor(x=>x.Receiver,new{@class = "form-control"})
+    @Html.DropDownListFor(x=>x.Receiver,(List<SelectListItem>)ViewBag.userList,new{@class="form-control"})
+    @*@Html.TextBoxFor(x=>x.Receiver,new{@class = "form-control"})*@
     <br />
     @Html.Label("Konu")
     @Html.TextBoxFor(x=>x.Subject,new{@class = "form-control"})

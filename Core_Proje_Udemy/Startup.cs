@@ -1,8 +1,11 @@
 using DataAccessLayer.Concrete;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -28,6 +31,24 @@ namespace Core_Proje_Udemy
 			services.AddDbContext<Context>();
 			services.AddIdentity<WritterUser, WritterRole>().AddEntityFrameworkStores<Context>();
 			services.AddControllersWithViews();
+
+			services.AddMvc(config =>
+			{
+				var policy = new AuthorizationPolicyBuilder()
+								.RequireAuthenticatedUser()
+								.Build();
+				config.Filters.Add(new AuthorizeFilter(policy));
+			});
+
+			services.AddMvc();
+			services.ConfigureApplicationCookie(opt =>
+			{
+				opt.Cookie.HttpOnly = true;
+				opt.ExpireTimeSpan = TimeSpan.FromHours(1);
+				opt.AccessDeniedPath = "/ErrorPage/Index/";
+				opt.LoginPath = "/Writter/Login/Index/";
+			});
+
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

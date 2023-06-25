@@ -2,19 +2,22 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace Core_Proje_Udemy.Controllers
 {
 	public class AdminMessageController : Controller
 	{
 		WritterMessageManager writterMessageManager = new WritterMessageManager(new EfWritterMessageDal());
-		public IActionResult AdminInbox()
+
+        public IActionResult AdminInbox()
 		{
 			string p;
 			p = "admin@gmail.com";
@@ -57,7 +60,9 @@ namespace Core_Proje_Udemy.Controllers
 		public IActionResult AdminSendMessage()
 		{
 			Context c = new Context();
+			var defaultUser = "admin@gmail.com";
 			List<SelectListItem> userList = (from x in c.Users.ToList()
+											 where x.Email != defaultUser
 											 select new SelectListItem
 											 {
 												 Text = x.Name + " " + x.Surname,
