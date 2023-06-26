@@ -8,5 +8,10 @@ namespace Core_Proje_Udemy.Controllers
 		{
 			return View();
 		}
-	}
+
+        public IActionResult Error404()
+        {
+            return View();
+        }
+    }
 }

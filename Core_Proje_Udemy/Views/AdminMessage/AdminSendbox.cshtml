@@ -29,7 +29,8 @@
 								<td>@item.WritterMessageID</td>
 								<td>@item.ReceiverName</td>
 								<td>@item.Subject</td>
-								<td>@item.Date</td>
+								@*<td>@item.Date</td>*@
+								<td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
 								<td><a href="/AdminMessage/AdminMessageDelete/@item.WritterMessageID" class="btn btn-danger">Sil</a></td>
 								<td><a href="/AdminMessage/AdminMessageDetails/@item.WritterMessageID" class="btn btn-warning">Mesajı Gör</a></td>
 							</tr>
