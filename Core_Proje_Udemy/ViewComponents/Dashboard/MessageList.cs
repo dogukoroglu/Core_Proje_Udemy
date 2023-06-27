@@ -10,7 +10,7 @@ namespace Core_Proje_Udemy.ViewComponents.Dashboard
 		MessageManager messageManager = new MessageManager(new EfMessageDal());
 		public IViewComponentResult Invoke()
 		{
-			var values = messageManager.TGetList().OrderByDescending(x=>x.MessageID).Take(4).ToList();
+			var values = messageManager.TGetList().OrderByDescending(x=>x.MessageID).Take(5).ToList();
 			return View(values);
 		}
 	}

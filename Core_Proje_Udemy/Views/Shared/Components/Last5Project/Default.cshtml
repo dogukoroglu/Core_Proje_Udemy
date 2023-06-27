@@ -1,4 +1,48 @@
-﻿<div class="col-md-8 grid-margin stretch-card">
+﻿@using EntityLayer.Concrete
+@model List<Message>
+@*last5projects*@
+
+<div class="col-md-8 grid-margin stretch-card">
+	<div class="card">
+		<div class="card-body">
+			<div class="d-flex flex-row justify-content-between">
+				<h4 class="card-title mb-1">Gelen İletişim Mesajları</h4>
+				@*<p class="text-muted mb-1">Proje Durumları</p>*@
+				<a href="/Contact/Index/"><p class="text-muted mb-1 small">Tümünü Görüntüle</p></a>
+			</div>
+			<div class="row">
+				<div class="col-12">
+					<div class="preview-list">
+						@foreach (var item in Model)
+						{
+							<div class="preview-item border-bottom">
+								<div class="preview-thumbnail">
+									<div class="preview-icon bg-danger">
+										<i class="mdi mdi-email-open"></i>
+									</div>
+								</div>
+								<div class="preview-item-content d-sm-flex flex-grow">
+									<div class="flex-grow">
+										<h6 class="preview-subject">@item.Name</h6>
+										<p class="text-muted mb-0">@item.Content.Substring(0,30)...</p>
+									</div>
+									<div class="mr-auto text-sm-right pt-2 pt-sm-0">
+										<p class="text-muted">@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</p>
+										<p class="text-muted mb-0">@item.Mail</p>
+									</div>
+								</div>
+							</div>
+						}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+
+@*<div class="col-md-8 grid-margin stretch-card">
 	<div class="card">
 		<div class="card-body">
 			<div class="d-flex flex-row justify-content-between">
@@ -98,4 +142,4 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div>*@

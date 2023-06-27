@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Data;
+using System.Linq;
 
 namespace Core_Proje_Udemy.Controllers
 {
@@ -13,7 +14,7 @@ namespace Core_Proje_Udemy.Controllers
 		MessageManager messageManager = new MessageManager(new EfMessageDal());
 		public IActionResult Index()
 		{
-			var values = messageManager.TGetList();
+			var values = messageManager.TGetList().OrderByDescending(x => x.MessageID).ToList();
 			return View(values);
 		}
 

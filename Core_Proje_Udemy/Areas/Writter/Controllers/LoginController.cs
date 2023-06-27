@@ -35,8 +35,8 @@ namespace Core_Proje_Udemy.Areas.Writter.Controllers
                 if (result.Succeeded)
                 {
                     return RedirectToAction("Index", "Profile", new { area = "Writter" });
-                }
-                else
+				}
+				else
                 {
                     ModelState.AddModelError("", "Hatalı Kullanıcı Adı veya Şifre");
                 }
