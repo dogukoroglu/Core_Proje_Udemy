@@ -3,11 +3,14 @@ using BusinessLayer.ValidationRules;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 using System.Linq;
 
 namespace Core_Proje_Udemy.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	public class PortfolioController : Controller
 	{
 		PortfolioManager portfolioManager = new PortfolioManager(new EfPortfoiloDal());

@@ -17,7 +17,7 @@ namespace Core_Proje_Udemy.Areas.Writter.Models
         public string ConfirmPassword { get; set; }
         [Required(ErrorMessage = "Lütfen mailinizi girin!")]
         public string Mail { get; set; }
-        [Required(ErrorMessage = "Lütfen resim yolunu girin!")]
-        public string ImageUrl { get; set; }
+        //[Required(ErrorMessage = "Lütfen resim yolunu girin!")]
+        //public string ImageUrl { get; set; }
     }
 }

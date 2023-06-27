@@ -1,11 +1,14 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Core_Proje_Udemy.Controllers
 {
-    public class SubContactController : Controller
+	[Authorize(Roles = "Admin")]
+	public class SubContactController : Controller
     {
         ContactManager contactManager = new ContactManager(new EfContactDal());
 

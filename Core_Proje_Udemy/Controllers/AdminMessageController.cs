@@ -2,17 +2,20 @@
 using DataAccessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Globalization;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace Core_Proje_Udemy.Controllers
 {
+	[Authorize(Roles = "Admin")]
 	public class AdminMessageController : Controller
 	{
 		WritterMessageManager writterMessageManager = new WritterMessageManager(new EfWritterMessageDal());

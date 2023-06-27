@@ -38,9 +38,9 @@
 			</a>
 		</li>
 		<li class="nav-item">
-			<a class="nav-link" href="/Writter/Profile/Index/">
+			<a class="nav-link" href="/Default/Index/">
 				<i class="icon-paper menu-icon"></i>
-				<span class="menu-title">Ayarlar</span>
+				<span class="menu-title">Siteye Git</span>
 			</a>
 		</li>
 		<li class="nav-item">
@@ -49,5 +49,14 @@
 				<span class="menu-title">Çıkış Yap</span>
 			</a>
 		</li>
+		@if(User.Identity.Name == "admin")
+		{
+			<li class="nav-item">
+				<a class="nav-link" href="/Dashboard/Index/">
+					<i class="icon-head menu-icon"></i>
+					<span class="menu-title">Admin Paneli</span>
+				</a>
+			</li>
+		}
 	</ul>
 </nav>

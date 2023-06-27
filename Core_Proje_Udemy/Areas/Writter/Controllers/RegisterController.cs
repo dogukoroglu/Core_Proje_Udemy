@@ -35,7 +35,9 @@ namespace Core_Proje_Udemy.Areas.Writter.Controllers
                 Surname = userRegisterViewModel.Surname,
                 UserName = userRegisterViewModel.UserName,
                 Email = userRegisterViewModel.Mail,
-                ImageUrl = userRegisterViewModel.ImageUrl
+                //ImageUrl = "https://icon-library.com/images/default-profile-icon/default-profile-icon-24.jpg"
+                ImageUrl = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTs4XdD00sHtFKBYeyzKvz1CUHr598N0yrUA&usqp=CAU"
+                //ImageUrl = userRegisterViewModel.ImageUrl
             };
             if (userRegisterViewModel.ConfirmPassword == userRegisterViewModel.Password)
             {

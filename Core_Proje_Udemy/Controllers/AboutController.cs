@@ -1,11 +1,14 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System.Data;
 
 namespace Core_Proje_Udemy.Controllers
 {
-    public class AboutController : Controller
+	[Authorize(Roles = "Admin")]
+	public class AboutController : Controller
     {
         AboutManager aboutManager = new AboutManager(new EfAboutDal());
 

@@ -34,16 +34,17 @@ namespace Core_Proje_Udemy.Areas.Writter.Controllers
         public async Task<IActionResult> Index(UserEditViewModel p)
         {
             var user = await _userManager.FindByNameAsync(User.Identity.Name);
-            if (p.Image != null)
-            {
-                var resource = Directory.GetCurrentDirectory();
-                var extension = Path.GetExtension(p.Image.FileName);
-                var imagename = Guid.NewGuid() + extension;
-                var savelocation = resource + "/wwwroot/userimage/" + imagename;
-                var stream = new FileStream(savelocation, FileMode.Create);
-                await p.Image.CopyToAsync(stream);
-                user.ImageUrl = imagename;
-            }
+            //if (p.Image != null)
+            //{
+            //    var resource = Directory.GetCurrentDirectory();
+            //    var extension = Path.GetExtension(p.Image.FileName);
+            //    var imagename = Guid.NewGuid() + extension;
+            //    var savelocation = resource + "/wwwroot/userimage/" + imagename;
+            //    var stream = new FileStream(savelocation, FileMode.Create);
+            //    await p.Image.CopyToAsync(stream);
+            //    user.ImageUrl = imagename;
+            //}
+            user.ImageUrl = p.ImageUrl;
             user.Name = p.Name;
             user.Surname = p.Surname;
             user.PasswordHash = _userManager.PasswordHasher.HashPassword(user, p.Password);

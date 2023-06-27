@@ -1,6 +1,7 @@
 ﻿<li class="nav-item nav-profile dropdown">
 	<a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-		<img src="~/userimage/@ViewBag.userImage" alt="profile" />
+		@*<img src="~/userimage/@ViewBag.userImage" alt="profile" />*@
+		<img src="@ViewBag.userImage" alt="profile" />
 	</a>
 	<div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
 		<a class="dropdown-item" href="/Writter/Profile/Index/">

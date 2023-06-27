@@ -10,7 +10,7 @@ namespace Core_Proje_Udemy.Areas.Writter.ViewComponents
         AnnouncementManager announcementManager = new AnnouncementManager(new EfAnnouncementDal());
         public IViewComponentResult Invoke()
         {
-            var values = announcementManager.TGetList().Take(3).ToList();
+            var values = announcementManager.TGetList().OrderByDescending(x=>x.AnnouncementID).Take(3).ToList();
             return View(values);
         }
     }
