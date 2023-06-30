@@ -1,0 +1,26 @@
+﻿@model EntityLayer.Concrete.Announcement
+
+@{
+    ViewData["Title"] = "UpdateAnnouncement";
+    Layout = "~/Views/Shared/_WritterLayout.cshtml";
+}
+
+<h1>Duyuru Güncelleme Sayfası</h1>
+<br />
+<form class="form-group" method="post">
+    <input type="hidden" asp-for="AnnouncementID" />
+    <br />
+    <label>Duyuru Başlığı</label>
+    <input type="text" class="form-control" asp-for="Title" />
+    <br />
+    <label>Duyuru Kategorisi</label>
+    <input type="text" class="form-control" asp-for="Status" />
+    <br />
+    <label>Duyuru İçeriği</label>
+    @Html.TextAreaFor(x=>x.Content,10,3,new{@class = "form-control"})
+    @*<textarea cols="3" rows="10" asp-for="Content"></textarea>*@
+    @*<input type="text" class="form-control" asp-for="Content" />*@
+    <br />
+    <button class="btn btn-dark">Güncelle</button>
+</form>
+

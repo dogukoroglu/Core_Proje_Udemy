@@ -31,6 +31,15 @@
 				<span class="menu-title">Duyurular</span>
 			</a>
 		</li>
+		@if (User.Identity.Name == "admin")
+		{
+			<li class="nav-item">
+				<a class="nav-link" href="/Writter/Default/AddAnnouncement/">
+					<i class="ti-announcement menu-icon"></i>
+					<span class="menu-title">Yeni Duyuru</span>
+				</a>
+			</li>
+		}
 		<li class="nav-item">
 			<a class="nav-link" href="/Writter/Profile/Index/">
 				<i class="ti-pencil menu-icon"></i>
@@ -49,7 +58,7 @@
 				<span class="menu-title">Çıkış Yap</span>
 			</a>
 		</li>
-		@if(User.Identity.Name == "admin")
+		@if (User.Identity.Name == "admin")
 		{
 			<li class="nav-item">
 				<a class="nav-link" href="/Dashboard/Index/">

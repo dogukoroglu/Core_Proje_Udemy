@@ -17,7 +17,9 @@
 							<th>Başlık</th>
 							<th>Tarih</th>
 							<th>Tür</th>
-							<th>Detaylar</th>
+							@*<th>Sil</th>
+							<th>Detaylar</th>*@
+							<th>İşlemler</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -44,11 +46,23 @@
 								<td>@item.Title</td>@item
 								<td>@(((DateTime)item.Date).ToString("dd-MMM-yyyy"))</td>
 								<td><label class="@color">@item.Status</label></td>
-								<th><a href="/Writter/Default/AnnouncementDetails/@item.AnnouncementID" class="btn btn-primary">Detaylar</a></th>
+								@if(User.Identity.Name == "admin")
+								{
+									<th><a href="/Writter/Default/DeleteAnnouncement/@item.AnnouncementID" class="btn btn-danger">Sil</a></th>
+									<th><a href="/Writter/Default/UpdateAnnouncement/@item.AnnouncementID" class="btn btn-primary">Detaylar</a></th>
+								}
+								else
+								{
+									<th><a href="/Writter/Default/AnnouncementDetails/@item.AnnouncementID" class="btn btn-primary">Detaylar</a></th>
+								}
 							</tr>
 						}
 					</tbody>
 				</table>
+				@if(User.Identity.Name == "admin")
+				{
+					<a href="/Writter/Default/AddAnnouncement/" class="btn btn-dark">Yeni Duyuru Oluştur</a>
+				}
 			</div>
 		</div>
 	</div>

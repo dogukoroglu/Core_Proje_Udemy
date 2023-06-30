@@ -5,6 +5,25 @@
     ViewData["Title"] = "AnnouncementDetails";
     Layout = "~/Views/Shared/_WritterLayout.cshtml";
 }
+
+<h1>Duyuru Detayları Sayfası</h1>
+<br />
+<form class="form-group" method="post">
+    <input type="hidden" asp-for="AnnouncementID" />
+    <br />
+    <label>Duyuru Başlığı</label>
+    <input type="text" class="form-control" asp-for="Title" readonly />
+    <br />
+    <label>Duyuru Kategorisi</label>
+    <input type="text" class="form-control" asp-for="Status" readonly />
+    <br />
+    <label>Duyuru İçeriği</label>
+    @Html.TextAreaFor(x=>x.Content,10,3,new{@class = "form-control",@readonly = "readonly"})
+    @*<textarea cols="3" rows="10" asp-for="Content"></textarea>*@
+    @*<input type="text" class="form-control" asp-for="Content" />*@
+</form>
+
+
 @*
 <!DOCTYPE html>
 <html lang="en">
@@ -17,7 +36,7 @@
     <link rel="stylesheet" type="text/css" href="js/select.dataTables.min.css">
     <link rel="stylesheet" href="css/vertical-layout-light/style.css">
 </head>*@
-<body>
+@*<body>
     <div class="content-wrapper">
         <div class="row justify-content-center">
             <div class="col-md-12 grid-margin stretch-card">
@@ -33,11 +52,10 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
     @*<script src="vendors/js/vendor.bundle.base.js"></script>
     <script src="vendors/datatables.net/jquery.dataTables.js"></script>
     <script src="vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
     <script src="js/dataTables.select.min.js"></script>*@
-</body>
 
 @*</html>*@
